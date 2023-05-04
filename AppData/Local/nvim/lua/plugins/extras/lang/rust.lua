@@ -7,7 +7,28 @@ return {
       {
         "Saecki/crates.nvim",
         event = { "BufRead Cargo.toml" },
-        config = true,
+        config = function()
+          local crates = require("crates")
+          crates.setup()
+          vim.keymap.set("n", "<leader>ct", crates.toggle, { desc = "Toggle Crates" })
+          vim.keymap.set("n", "<leader>cr", crates.reload, { desc = "Reload Creates" })
+
+          vim.keymap.set("n", "<leader>cv", crates.show_versions_popup, { desc = "Show Version" })
+          vim.keymap.set("n", "<leader>cf", crates.show_features_popup, { desc = "Show Features" })
+          -- vim.keymap.set("n", "<leader>cd", crates.show_dependencies_popup, opts)
+          --
+          -- vim.keymap.set("n", "<leader>cu", crates.update_crate, opts)
+          -- vim.keymap.set("v", "<leader>cu", crates.update_crates, opts)
+          -- vim.keymap.set("n", "<leader>ca", crates.update_all_crates, opts)
+          -- vim.keymap.set("n", "<leader>cU", crates.upgrade_crate, opts)
+          -- vim.keymap.set("v", "<leader>cU", crates.upgrade_crates, opts)
+          -- vim.keymap.set("n", "<leader>cA", crates.upgrade_all_crates, opts)
+          --
+          -- vim.keymap.set("n", "<leader>cH", crates.open_homepage, opts)
+          -- vim.keymap.set("n", "<leader>cR", crates.open_repository, opts)
+          -- vim.keymap.set("n", "<leader>cD", crates.open_documentation, opts)
+          -- vim.keymap.set("n", "<leader>cC", crates.open_crates_io, opts)
+        end,
       },
     },
     ---@param opts cmp.ConfigSchema
@@ -54,8 +75,10 @@ return {
           require("lazyvim.util").on_attach(function(client, buffer)
             -- stylua: ignore
             if client.name == "rust_analyzer" then
-              vim.keymap.set("n", "K", "<CMD>RustHoverActions<CR>", { buffer = buffer })
-              vim.keymap.set("n", "<leader>dR", "<CMD>RustDebuggables<CR>", { buffer = buffer, desc = "Run RustDebuggables" })
+              vim.keymap.set("n", "<leader>rh", "<CMD>RustHoverActions<CR>", { buffer = buffer, desc = "RustHoverActions"})
+              vim.keymap.set("n", "<leader>rd", "<CMD>RustDebuggables<CR>", { buffer = buffer, desc = "Run RustDebuggables" })
+              vim.keymap.set("n", "<leader>rc", "<CMD>RustOpenCargo<CR>", { buffer = buffer, desc = "Open Cargo.toml" })
+              vim.keymap.set("n", "<leader>rp", "<CMD>RustParentModule<CR>", { buffer = buffer, desc = "Open Parent Moudule" })
             end
           end)
           local mason_registry = require("mason-registry")
@@ -66,7 +89,6 @@ return {
                 border = "none",
               },
               inlay_hints = {
-                auto = false,
                 show_parameter_hints = true,
               },
             },
