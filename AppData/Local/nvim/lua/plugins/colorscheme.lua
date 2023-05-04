@@ -1,4 +1,6 @@
 return {
+  -- colorscheme 添加tokyonight
+  { "folke/tokyonight.nvim", lazy = false },
   -- colorscheme 添加onedark
   {
     "olimorris/onedarkpro.nvim",
