@@ -145,7 +145,7 @@ return {
     config = function()
       local wk = require("which-key")
       wk.register({
-        ["<leader>r"] = { name = "rust actions", ["t"] = { name = "crate action" } },
+        ["<leader>r"] = { name = "rust actions", ["c"] = { name = "crate action" } },
       })
     end,
   },

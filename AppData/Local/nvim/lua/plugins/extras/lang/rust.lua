@@ -10,24 +10,24 @@ return {
         config = function()
           local crates = require("crates")
           crates.setup()
-          vim.keymap.set("n", "<leader>ct", crates.toggle, { desc = "Toggle Crates" })
-          vim.keymap.set("n", "<leader>cr", crates.reload, { desc = "Reload Creates" })
+          vim.keymap.set("n", "<leader>rct", crates.toggle, { desc = "Toggle Crates" })
+          vim.keymap.set("n", "<leader>rcr", crates.reload, { desc = "Reload Creates" })
 
-          vim.keymap.set("n", "<leader>cv", crates.show_versions_popup, { desc = "Show Version" })
-          vim.keymap.set("n", "<leader>cf", crates.show_features_popup, { desc = "Show Features" })
-          -- vim.keymap.set("n", "<leader>cd", crates.show_dependencies_popup, opts)
-          --
-          -- vim.keymap.set("n", "<leader>cu", crates.update_crate, opts)
-          -- vim.keymap.set("v", "<leader>cu", crates.update_crates, opts)
-          -- vim.keymap.set("n", "<leader>ca", crates.update_all_crates, opts)
-          -- vim.keymap.set("n", "<leader>cU", crates.upgrade_crate, opts)
-          -- vim.keymap.set("v", "<leader>cU", crates.upgrade_crates, opts)
-          -- vim.keymap.set("n", "<leader>cA", crates.upgrade_all_crates, opts)
-          --
-          -- vim.keymap.set("n", "<leader>cH", crates.open_homepage, opts)
-          -- vim.keymap.set("n", "<leader>cR", crates.open_repository, opts)
-          -- vim.keymap.set("n", "<leader>cD", crates.open_documentation, opts)
-          -- vim.keymap.set("n", "<leader>cC", crates.open_crates_io, opts)
+          vim.keymap.set("n", "<leader>rcv", crates.show_versions_popup, { desc = "Show Version" })
+          vim.keymap.set("n", "<leader>rcf", crates.show_features_popup, { desc = "Show Features" })
+          vim.keymap.set("n", "<leader>rcd", crates.show_dependencies_popup, { desc = "Show Dependencies" })
+
+          vim.keymap.set("n", "<leader>rcu", crates.update_crate, { desc = "Update Crate" })
+          vim.keymap.set("v", "<leader>rcu", crates.update_crates, { desc = "Update Crates" })
+          vim.keymap.set("n", "<leader>rca", crates.update_all_crates, { desc = "Update All Crates" })
+          vim.keymap.set("n", "<leader>rcU", crates.upgrade_crate, { desc = "Upgrade Crate" })
+          vim.keymap.set("v", "<leader>rcU", crates.upgrade_crates, { desc = "Upgrade Crates" })
+          vim.keymap.set("n", "<leader>rcA", crates.upgrade_all_crates, { desc = "Upgrade All Crates" })
+
+          vim.keymap.set("n", "<leader>rcH", crates.open_homepage, { desc = "Open Homepage" })
+          vim.keymap.set("n", "<leader>rcR", crates.open_repository, { desc = "Open Repository" })
+          vim.keymap.set("n", "<leader>rcD", crates.open_documentation, { desc = "Open Documentation" })
+          vim.keymap.set("n", "<leader>rcC", crates.open_crates_io, { desc = "Open Creates IO" })
         end,
       },
     },
@@ -77,7 +77,7 @@ return {
             if client.name == "rust_analyzer" then
               vim.keymap.set("n", "<leader>rh", "<CMD>RustHoverActions<CR>", { buffer = buffer, desc = "RustHoverActions"})
               vim.keymap.set("n", "<leader>rd", "<CMD>RustDebuggables<CR>", { buffer = buffer, desc = "Run RustDebuggables" })
-              vim.keymap.set("n", "<leader>rc", "<CMD>RustOpenCargo<CR>", { buffer = buffer, desc = "Open Cargo.toml" })
+              vim.keymap.set("n", "<leader>ro", "<CMD>RustOpenCargo<CR>", { buffer = buffer, desc = "Open Cargo.toml" })
               vim.keymap.set("n", "<leader>rp", "<CMD>RustParentModule<CR>", { buffer = buffer, desc = "Open Parent Moudule" })
             end
           end)
