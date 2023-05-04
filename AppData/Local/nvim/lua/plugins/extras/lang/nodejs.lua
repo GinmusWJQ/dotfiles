@@ -36,17 +36,14 @@ return {
   {
     "williamboman/mason.nvim",
     opts = function(_, opts)
-      vim.list_extend(
-        opts.ensure_installed,
-        {
-          "css-lsp",
-          "html-lsp",
-          "stylelint-lsp",
-          "typescript-language-server",
-          "vue-language-server",
-          "tailwindcss-language-server",
-        }
-      )
+      vim.list_extend(opts.ensure_installed, {
+        "css-lsp",
+        "html-lsp",
+        "stylelint-lsp",
+        "typescript-language-server",
+        "vue-language-server",
+        "tailwindcss-language-server",
+      })
     end,
   },
 
@@ -114,7 +111,7 @@ return {
             type = "pwa-chrome",
             name = "Launch Chrome",
             request = "launch",
-            url = "http://localhost:3005",
+            url = "http://localhost:3000",
             browserLaunchLocation = "workspace",
           },
         }
