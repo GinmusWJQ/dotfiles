@@ -142,19 +142,10 @@ return {
   },
   {
     "folke/which-key.nvim",
-    -- opts = function(_, opts)
-    --   vim.list_extend(opts.defaults, {
-    --     ["<leader>r"] = { name = "rust actions", ["c"] = { name = "crate action" } },
-    --   })
-    -- end,
     opts = {
       defaults = {
         ["<leader>r"] = { name = "rust actions", ["c"] = { name = "crate action" } },
       },
     },
-    config = function(_, opts)
-      local wk = require("which-key")
-      wk.register(opts.defaults)
-    end,
   },
 }
